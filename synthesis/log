@@ -1,0 +1,289 @@
+python run_synthesis.py
+qubits 4
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q2
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q3
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q2
+x q3
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q0
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q0
+x q2
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q0
+x q3
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q0
+x q2
+x q3
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q1
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q1
+x q2
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q1
+x q3
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q1
+x q2
+x q3
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q0
+x q1
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q0
+x q1
+x q2
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q0
+x q1
+x q3
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display
+qubits 4
+x q0
+x q1
+x q2
+x q3
+toffoli q3, q1, q2
+toffoli q0, q1, q3
+toffoli q2, q1, q0
+toffoli q2, q1, q0
+toffoli q0, q1, q3
+toffoli q1, q2, q3
+toffoli q1, q0, q2
+toffoli q1, q3, q2
+toffoli q1, q0, q3
+toffoli q3, q2, q0
+measure q0
+measure q1
+measure q2
+
+display

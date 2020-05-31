@@ -1,0 +1,45 @@
+"""
+
+Quantum logic synthesis using stochatic synthesis
+-- xiaoyao@usc.edu
+
+"""
+import program
+import synthesis
+
+# main function
+def main():
+	cktLen = 10
+	prog = program.Program(
+		type1=1, 
+		type2=4, 
+		type3=2, 
+		numArgs=2, 
+		length=cktLen, 
+		inBits=[3, 3],
+		outBits=4,
+		cktName="test.qc", 
+		appName="adder.c", 
+		times1=3,
+		times2=1,
+		numAncilla=2,
+		numQubits=8
+		)
+
+	prog.prepBeforeRun()
+	prog.runProgram()
+	#prog.genStates()
+	#prog.storeResults()
+	#print len(prog.qxCode)
+	#print prog.instructions
+	syn = synthesis.Synthesis(
+			cktLen=cktLen,
+			beta=2.7, #2
+			cost=1, 
+			program=prog,
+			iterations=100000,
+			err=0.01
+		)
+	syn.synthesize()
+if __name__ == '__main__':
+	main()
