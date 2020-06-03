@@ -12,7 +12,7 @@ import gates
 import program
 import copy
 import math
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import sys
 # synthesis class
 class Synthesis:
@@ -44,21 +44,27 @@ class Synthesis:
 		# (TBD) 6. Swap operand (0.00):
 		#    Randomly select an instruction and 
 		#    swap operands if possible
-		probRepOpr = 0.6
-		probRepOprs= 0.12
+		probRepOpr = 0.0
 		probSwap   = 0.1
-		probRepIst = 0.1
+		probRepIst = 0.74
 		probRmv    = 0.04#0.045
 		probInsrt  = 0.04
+		probRepOprs= 0.08
 		
 		prob = random.random() 
-		randItr = random.randint(0,len(program.qxCode)-1)
-		randOp = program.qxCode[randItr]
+
+		if (index == -1):
+			randItr = random.randint(0,len(program.qxCode)-1)
+			randOp = program.qxCode[randItr]
+		else:
+			randItr = index
+			randOp = program.qxCode[index]			
 		#print 'random instr %d' %(randItr+1)
 		#print gates.Gates.univGates(self.program.type2)
 		if (prob <= probRepOpr):
-			#print randItr
-			#print randOp.qubits
+			#print('rand instr: ', randItr)
+			#print('rand qbs: ', randOp.qubits)
+			#print('register: ', program.registers)
 			#print 'Case 1: replace operand'
 			# pick a random operand
 			flag = False
@@ -66,6 +72,7 @@ class Synthesis:
 				rand1 = random.randint(0, len(randOp.qubits)-1)
 				# pick a new one
 				rand2 = random.randint(0,len(program.registers)-1)
+				#print(index, rand1, rand2)
 				if (index == -1):
 					if (program.qxCode[randItr].qubits)[rand1] != program.registers[rand2]:
 						flag = True
@@ -178,16 +185,16 @@ class Synthesis:
 			
 			(newCost, newPairs, newSize) = newProg.cost()
 			
-			#print '-------------------'
-			#print 'OLD Program:'
+			#print ('-------------------')
+			#print ('OLD Program:')
 			#prog.print2Screen()
-			#print 'OLD Cost: %f' %(oldCost)
-			#print '-------------------'
-			#print '-------------------'
-			#print 'NEW Program:'
+			print ('OLD Cost: %f' %(oldCost))
+			#print ('-------------------')
+			#print ('-------------------')
+			#print ('NEW Program:')
 			#newProg.print2Screen()
-			#print 'New Cost: %f' %(newCost)
-			#print '-------------------'
+			print ('New Cost: %f' %(newCost))
+			#print ('-------------------')
 
 			# calculate the alpha and proposal prob
 			# alpha = min(1, math.exp(-self.beta*(newCost - oldCost)))

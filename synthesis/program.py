@@ -87,7 +87,8 @@ class Program:
 					args.append(random.randint(0, num-1))
 				results = check_output('./a.out %s' % (' '.join(map(str, args))), shell=True)
 				#print args
-				#print float(results)
+				#print('lol')
+				#print(float(results))
 				state.input = args
 				state.output = float(results)
 				self.states.append(state)
@@ -100,7 +101,7 @@ class Program:
 						args = [i, j]
 						#print args
 						results = check_output('./a.out %s' % (' '.join(map(str, args))), shell=True)
-						#print results
+						#print(results)
 						state.input = [i, j]
 						state.output = float(results)
 						self.states.append(state)
@@ -220,9 +221,15 @@ class Program:
 			file.write("%s " % (i.type.name))
 			for qb_idx in range(len(i.qubits)):
 				if (qb_idx == len(i.qubits) - 1):
-					file.write("q%d" % (i.qubits[qb_idx]))
+					file.write("q%d\t" % (i.qubits[qb_idx]))
 				else:
 					file.write("q%d, " % (i.qubits[qb_idx])) 
+			for qb_idx in range(len(i.qubits)):
+				if (qb_idx == len(i.qubits) - 1):
+					file.write("%d" % (i.qubits[qb_idx]))
+				else:
+					file.write("%d, " % (i.qubits[qb_idx])) 			
+
 			file.write("\n")
 		file.write("\ndisplay\n")
 		file.close()
@@ -258,12 +265,13 @@ class Program:
 			else:
 				# run it using QX simulator many times
 				# store results into a file called "temp"	
-				print(self.times2)
+				# print(self.times2)
 				for i in range(self.times2):	
-					command = ['./qx_simulator_1.0.beta_linux_x86_64', self.cktName]
+					command = ['./qx-simulator-old', self.cktName]
 					self.file = check_output(command)
 				# have to clear this list
 				# otherwise, instructions will be accumulated
+				# print(self.file)
 				self.instructions = []
 				#print state
 				self.storeResults()
@@ -273,6 +281,8 @@ class Program:
 		# read golden results from temp (Q.C.)
 		lines = 0
 		value = 0
+		self.file = str(self.file, 'utf-8')
+		#print(self.file)
 		for line in self.file.split('\n'):
 			# regex to extract measurement outcome
 			regexp = re.compile(r'measurement register')
@@ -283,7 +293,7 @@ class Program:
 				lst = line.split('|')
 				#print lst
 				result = ("".join(lst[len(lst)-1-self.outBits:len(lst)-1])).replace(" ", "")
-				#print "result = ", result
+				#print("result = ", result)
 				#print "len = ", len(lst[len(lst)-1-self.outBits:len(lst)-1])
 				#print "int = ", int(result, 2)
 				lines += 1

@@ -47,17 +47,17 @@ class Gates(enum.Enum):
 	@classmethod
 	def univGates(cls, type):
 		if (type == 1):
-			# hedamard, t, and cnot gates
+			# hadamard, t, and cnot gates
 			return [cls.h, cls.t, cls.cnot]
 		elif (type == 2):
 			# gates acting on one qubit plus cnot
 			one = Gates.oneQubit()
 			one.append(cls.cnot)
 			return one
+		#elif (type == 3):
+		#	return [cls.toffoli]
 		elif (type == 3):
-			return [cls.toffoli]
-		elif (type == 4):
-			return [cls.cnot, cls.toffoli]
+			return [cls.h, cls.toffoli]
 
 
 class Operator:

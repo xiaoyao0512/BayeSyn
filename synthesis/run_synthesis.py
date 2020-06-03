@@ -45,17 +45,18 @@ def main(BO_flag=0):
 		numArgs=2, 
 		length=cktLen, 
 		inBits=[1, 1],
-		outBits=1,
+		outBits=2,
 		cktName="test.qc", 
 		appName="adder.c", 
 		times1=3,
 		times2=1,
 		numAncilla=1,
-		numQubits=5
+		numQubits=3
 		)
-
 	prog.prepBeforeRun()
+	#print('2222')
 	prog.runProgram()
+	#print('3333')
 	#prog.genStates()
 	#prog.storeResults()
 	#print len(prog.qxCode)
@@ -63,11 +64,11 @@ def main(BO_flag=0):
 	global syn
 	syn = synthesis.Synthesis(
 			cktLen=cktLen,
-			beta=3, #2
+			beta=1.3, #2
 			cost=100, 
 			program=prog,
 			iterations=50000,
-			err=0.2
+			err=0.1
 		)
 	# If you want to use BO to automatically 
 	# find the beta, turn on the flag;
