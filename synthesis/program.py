@@ -70,7 +70,7 @@ class Program:
 		self.numQubits = numQubits
 		# this is used to keep track of live registers
 		self.registers = []
-		self.file = 0
+		self.file = ""
 
 	def compile(self):
 		os.system('gcc %s' % (self.appName))
@@ -268,20 +268,24 @@ class Program:
 				# print(self.times2)
 				for i in range(self.times2):	
 					command = ['./qx-simulator-old', self.cktName]
-					self.file = check_output(command)
+					self.file += str(check_output(command), 'utf-8')
 				# have to clear this list
 				# otherwise, instructions will be accumulated
 				# print(self.file)
 				self.instructions = []
 				#print state
 				self.storeResults()
+				# remove results from previous iteration
+				self.file = ""
+			#print(' len(self.states) = ',  len(self.states))
+			#print(' len(self.golden) = ',  len(self.golden))
 		assert len(self.states) == len(self.golden), 'Ops, something\'s wrong'
 
 	def storeResults(self):
 		# read golden results from temp (Q.C.)
 		lines = 0
 		value = 0
-		self.file = str(self.file, 'utf-8')
+		#self.file = str(self.file, 'utf-8
 		#print(self.file)
 		for line in self.file.split('\n'):
 			# regex to extract measurement outcome
@@ -294,11 +298,13 @@ class Program:
 				#print lst
 				result = ("".join(lst[len(lst)-1-self.outBits:len(lst)-1])).replace(" ", "")
 				#print("result = ", result)
-				#print "len = ", len(lst[len(lst)-1-self.outBits:len(lst)-1])
-				#print "int = ", int(result, 2)
+				#print("len = ", len(lst[len(lst)-1-self.outBits:len(lst)-1]))
+				#print("int = ", int(result, 2))
 				lines += 1
 				value += int(result, 2)
 				if (lines % self.times2 == 0):
+					#print("lol")
+					#print("value ", value)
 					self.golden.append(value / self.times2)
 					value = 0
 

@@ -49,7 +49,7 @@ def main(BO_flag=0):
 		cktName="test.qc", 
 		appName="adder.c", 
 		times1=3,
-		times2=1,
+		times2=5,
 		numAncilla=1,
 		numQubits=3
 		)
@@ -64,7 +64,7 @@ def main(BO_flag=0):
 	global syn
 	syn = synthesis.Synthesis(
 			cktLen=cktLen,
-			beta=1.3, #2
+			beta=3, #2
 			cost=100, 
 			program=prog,
 			iterations=50000,

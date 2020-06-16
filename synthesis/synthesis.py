@@ -172,7 +172,8 @@ class Synthesis:
 		while (currErr > self.err): #iterations < self.iterations and
 			newProg = copy.deepcopy(prog)
 			(oldCost, oldPairs, oldSize) = prog.cost()
-
+			self.rewrite(newProg)
+			'''
 			if (currErr > 2):
 				self.rewrite(newProg)
 			else:
@@ -180,8 +181,9 @@ class Synthesis:
 				# find the wrong path
 				gateIndex = self.backprop(newProg, oldPairs)
 				self.rewrite(newProg, gateIndex)
+			
+			'''
 			newProg.runProgram()
-
 			
 			(newCost, newPairs, newSize) = newProg.cost()
 			
